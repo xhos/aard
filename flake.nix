@@ -41,11 +41,10 @@
     devShells.${system} = {
       default = pkgs.mkShell {
         buildInputs = [
-          # TODO: figure out how to use this for cleaner dev experience
           # includes astal3 astal4 astal-io by default
           (ags.packages.${system}.default.override {
             extraPackages = [
-              # cherry pick packages
+              ags.packages.${system}.agsFull
             ];
           })
         ];
