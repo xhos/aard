@@ -1,4 +1,3 @@
-// style.scss
 @use 'colors' as *;
 
 window.Bar {
@@ -7,6 +6,15 @@ window.Bar {
   color: var(--md-sys-color-on-surface);
   font-weight: bold;
   font-family: Roboto Mono, sans-serif;
+
+  /* On hover, use a linear gradient with the battery level */
+  &:hover {
+    background: linear-gradient(
+      to top,
+      green var(--battery-level, 0%),
+      var(--md-sys-color-background) var(--battery-level, 0%)
+    );
+  }
 
   .TimeLabel {
     font-size: 17px;
