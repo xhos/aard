@@ -1,20 +1,45 @@
-// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
-$fg-color: #{'@theme_fg_color'};
-$bg-color: #{'@theme_bg_color'};
+// style.scss
+@use 'colors' as *;
 
 window.Bar {
-  background: transparent;
-  color: $fg-color;
+  min-width: 40px;
+  background: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-surface);
   font-weight: bold;
+  font-family: Roboto Mono, sans-serif;
 
-  > centerbox {
-    background: $bg-color;
-    border-radius: 10px;
-    margin: 8px;
+  .TimeLabel {
+    font-size: 17px;
+    color: var(--md-sys-color-on-surface);
   }
 
-  button {
+  .DateLabel {
+    font-size: 17px;
+    color: var(--md-sys-color-outline);
+  }
+
+  .WorkspaceLabel {
+    font-size: 20px;
+    color: var(--md-sys-color-on-surface);
+  }
+
+  .ClockBox {
+    min-width: 32px;
+    min-height: 32px;
+    background: var(--md-sys-color-surface-container);
     border-radius: 8px;
-    margin: 2px;
+    margin-bottom: 4px;
+    margin-top: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+
+  .SquareBox {
+    min-width: 32px;
+    min-height: 32px;
+    background: var(--md-sys-color-surface-container);
+    border-radius: 8px;
+    margin-bottom: 4px;
+    margin-top: 4px;
   }
 }
