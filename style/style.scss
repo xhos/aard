@@ -2,6 +2,7 @@
 @use './time';
 @use './tray';
 @use './workspace';
+@use './language';
 
 window.Bar {
   min-width: 50px;

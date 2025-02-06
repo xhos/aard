@@ -1,0 +1,26 @@
+window.Bar {
+  .LanguageBox {
+    min-width: 42px;
+    min-height: 42px;
+    background: var(--md-sys-color-surface-container);
+    border-radius: 8px;
+    margin-bottom: 4px;
+  }
+
+  .LanguageButton {
+    padding: 0;
+    margin: 0;
+    min-width: 42px;
+    min-height: 42px;
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  .LanguageLabel {
+    font-size: 18px;
+    margin-left: 2px; // don't ask
+    margin-top: 2px; // don't ask either
+    color: var(--md-sys-color-on-surface);
+  }
+}

@@ -37,7 +37,7 @@ export default function Systray() {
   const tray = Tray.get_default();
 
   return (
-    <box cssClasses={['TrayBox']} orientation={Gtk.Orientation.VERTICAL}>
+    <box cssClasses={['TrayBox']} halign={Gtk.Align.CENTER} orientation={Gtk.Orientation.VERTICAL}>
       <box cssClasses={['TrayContent']}>
         <image cssClasses={['TrayIcon']} paintable={ArrowUpIcon()} />
       </box>

@@ -34,6 +34,7 @@
           ags.packages.${pkgs.system}.mpris
           ags.packages.${pkgs.system}.tray
           ags.packages.${pkgs.system}.wireplumber
+          pkgs.jq # for language switcher
         ];
       };
     };
@@ -52,6 +53,7 @@
               ags.packages.${pkgs.system}.mpris
               ags.packages.${pkgs.system}.tray
               ags.packages.${pkgs.system}.wireplumber
+              pkgs.jq # for language switcher
             ];
           })
         ];
