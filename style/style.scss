@@ -1,0 +1,12 @@
+@use 'colors' as *;
+@use './time';
+@use './tray';
+@use './workspace';
+
+window.Bar {
+  min-width: 50px;
+  background: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-surface);
+  font-weight: bold;
+  font-family: Roboto Mono, sans-serif;
+}

@@ -1,0 +1,45 @@
+window.Bar {
+  .TrayBox {
+    min-width: 42px;
+    min-height: 42px;
+    background: var(--md-sys-color-surface-container);
+    border-radius: 8px;
+    margin: 4px;
+    transition: all 200ms ease;
+
+    &:hover {
+      .TrayContent .TrayIcon {
+        transform: rotate(180deg);
+      }
+
+      .TrayExpanded {
+        opacity: 1;
+        margin-top: 0;
+      }
+    }
+  }
+
+  .TrayContent {
+    min-height: 42px;
+
+    .TrayIcon {
+      min-width: 34px;
+      margin-left: 5px; // don't ask
+      min-height: 34px;
+      color: var(--md-sys-color-on-surface);
+      transition: transform 200ms ease;
+    }
+  }
+
+  .TrayExpanded {
+    opacity: 0;
+    margin-top: -200px;
+    transition: all 200ms ease;
+
+    .TrayIcon {
+      min-width: 34px;
+      min-height: 34px;
+      color: var(--md-sys-color-on-surface);
+    }
+  }
+}

@@ -1,0 +1,21 @@
+window.Bar {
+  .TimeLabel {
+    font-size: 22px;
+    color: var(--md-sys-color-on-surface);
+  }
+
+  .DateLabel {
+    font-size: 22px;
+    color: var(--md-sys-color-outline);
+  }
+
+  .ClockBox {
+    min-width: 42px;
+    min-height: 84px;
+    background: var(--md-sys-color-surface-container);
+    border-radius: 8px;
+    padding-top: 2px;
+    margin-bottom: 4px;
+    padding-bottom: 2px;
+  }
+}
