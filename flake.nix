@@ -45,6 +45,13 @@
           (ags.packages.${system}.default.override {
             extraPackages = [
               ags.packages.${system}.agsFull
+              ags.packages.${pkgs.system}.battery
+              ags.packages.${pkgs.system}.bluetooth
+              ags.packages.${pkgs.system}.hyprland
+              ags.packages.${pkgs.system}.network
+              ags.packages.${pkgs.system}.mpris
+              ags.packages.${pkgs.system}.tray
+              ags.packages.${pkgs.system}.wireplumber
             ];
           })
         ];

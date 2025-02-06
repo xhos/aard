@@ -1,5 +1,4 @@
 import { App } from 'astal/gtk4';
-import style from './style.scss';
 import { exec, monitorFile } from 'astal';
 import Bar from './widget/Bar';
 
