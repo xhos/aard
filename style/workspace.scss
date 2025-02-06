@@ -5,7 +5,25 @@ window.Bar {
     background: var(--md-sys-color-primary-container);
     border-radius: 8px;
     margin-top: 4px;
+
+    transition: background-color 300ms ease, border-radius 300ms ease;
+
+    &:hover {
+      background: var(--md-sys-color-inverse-primary);
+      border-radius: 16px;
+    }
   }
+
+  .WorkspaceButton {
+    padding: 0;
+    margin: 0;
+    min-width: 42px;
+    min-height: 42px;
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+
   .WorkspaceLabel {
     font-size: 22px;
     color: var(--md-sys-color-on-primary-container);

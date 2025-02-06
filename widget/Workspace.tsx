@@ -24,14 +24,16 @@ export default function WorkspaceIndicator() {
   const currentWorkspace = bind(hyprland, 'focused_workspace');
 
   return (
-    <centerbox cssClasses={['WorkspaceBox']} halign={Gtk.Align.CENTER}>
-      {' '}
-      <label
-        cssClasses={['WorkspaceLabel']}
-        label={currentWorkspace.as((workspace) =>
-          toKanji(workspace?.name as keyof typeof kanjiNumbers)
-        )}
-      />
-    </centerbox>
+    <box cssClasses={['WorkspaceBox']} halign={Gtk.Align.CENTER}>
+      <button cssClasses={['LanguageButton']} onClicked="hyprctl dispatch togglespecialworkspace ">
+        {' '}
+        <label
+          cssClasses={['WorkspaceLabel']}
+          label={currentWorkspace.as((workspace) =>
+            toKanji(workspace?.name as keyof typeof kanjiNumbers)
+          )}
+        />
+      </button>
+    </box>
   );
 }

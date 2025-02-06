@@ -9,6 +9,11 @@ window.Bar {
     color: var(--md-sys-color-outline);
   }
 
+  .RestDayLabel {
+    font-size: 22px;
+    color: var(--md-sys-color-primary-container);
+  }
+
   .ClockBox {
     min-width: 42px;
     min-height: 84px;
@@ -17,5 +22,12 @@ window.Bar {
     padding-top: 2px;
     margin-bottom: 4px;
     padding-bottom: 2px;
+
+    transition: background-color 300ms ease, border-radius 300ms ease;
+
+    &:hover {
+      background: var(--md-sys-color-surface-container-high);
+      border-radius: 16px;
+    }
   }
 }

@@ -8,6 +8,7 @@ window.Bar {
     transition: all 300ms ease;
 
     &:hover {
+      background: var(--md-sys-color-surface-container-high);
       .TrayContent .TrayIcon {
         transform: rotate(180deg);
       }
@@ -27,7 +28,7 @@ window.Bar {
       margin-left: 4px; // don't ask
       min-height: 34px;
       color: var(--md-sys-color-on-surface);
-      transition: transform 200ms ease;
+      transition: transform 300ms ease;
     }
   }
 
@@ -39,9 +40,9 @@ window.Bar {
     .TrayIcon {
       min-width: 34px;
       min-height: 34px;
-      background-color: var(--md-sys-color-surface-container);
-      background: var(--md-sys-color-surface-container);
-      color: var(--md-sys-color-surface-container);
+      background-color: var(--md-sys-color-surface-container-high);
+      background: var(--md-sys-color-surface-container-high);
+      color: var(--md-sys-color-surface-container-high);
       border-radius: 8px;
     }
   }
