@@ -39,7 +39,10 @@ window.Bar {
     .TrayIcon {
       min-width: 34px;
       min-height: 34px;
-      color: var(--md-sys-color-on-surface);
+      background-color: var(--md-sys-color-surface-container);
+      background: var(--md-sys-color-surface-container);
+      color: var(--md-sys-color-surface-container);
+      border-radius: 8px;
     }
   }
 }
