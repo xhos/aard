@@ -4,7 +4,6 @@ import { astalify, hook } from 'astal/gtk4';
 import { ArrowUpIcon } from './icons/arrow-up';
 import Tray from 'gi://AstalTray';
 
-const DEBUG = false; // Toggle debug tray name logging
 const excludeIcons = [/^video-display/, /^blueman-active/];
 
 const PopoverMenu = astalify<Gtk.PopoverMenu, Gtk.PopoverMenu.ConstructorProps>(

@@ -2,6 +2,8 @@ import { App } from 'astal/gtk4';
 import Bar from './widget/Bar';
 import style from './style.scss';
 
+globalThis.DEBUG = false;
+
 App.start({
   css: style,
   main() {
