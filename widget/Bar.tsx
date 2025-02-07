@@ -1,27 +1,18 @@
 import { App, Astal, Gtk, Gdk } from 'astal/gtk4';
 import { bind } from 'astal';
-import Battery from 'gi://AstalBattery';
 import Time from './Time';
 import Workspace from './Workspace';
 import Systray from './Tray';
 import LanguageIndicator from './Language';
-// import User from './User';
+import BatteryWidget from './Battery';
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
   const { TOP, LEFT, BOTTOM } = Astal.WindowAnchor;
-  const battery = Battery.get_default();
-
-  const batteryBinding = {
-    cssProperties: bind(battery as any, 'percentage').as((p: number) => ({
-      '--battery-level': Math.round(p * 100) + '%',
-    })),
-  };
 
   return (
     <window
       visible
       cssClasses={['Bar']}
-      {...(batteryBinding as any)}
       gdkmonitor={gdkmonitor}
       exclusivity={Astal.Exclusivity.EXCLUSIVE}
       anchor={TOP | LEFT | BOTTOM}
@@ -32,6 +23,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
         <box vexpand={true} />
         <Systray />
         <LanguageIndicator />
+        <BatteryWidget />
         <Time />
       </box>
     </window>
