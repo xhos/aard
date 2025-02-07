@@ -1,0 +1,18 @@
+window.Bar {
+  .QuickSettingsPanel {
+    min-width: 242px;
+    min-height: 284px;
+    background: var(--md-sys-color-surface-container);
+    border-radius: 8px;
+    padding-top: 2px;
+    margin-bottom: 4px;
+    padding-bottom: 2px;
+
+    transition: background-color 300ms ease, border-radius 300ms ease;
+
+    &:hover {
+      background: var(--md-sys-color-surface-container-high);
+      border-radius: 16px;
+    }
+  }
+}

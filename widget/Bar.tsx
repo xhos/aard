@@ -5,6 +5,7 @@ import Time from './Time';
 import Workspace from './Workspace';
 import Systray from './Tray';
 import LanguageIndicator from './Language';
+// import User from './User';
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
   const { TOP, LEFT, BOTTOM } = Astal.WindowAnchor;

@@ -1,8 +1,10 @@
-@use 'colors' as *;
-@use './time';
-@use './tray';
-@use './workspace';
-@use './language';
+@use './style/colors' as *;
+@use './style/time';
+@use './style/tray';
+@use './style/workspace';
+@use './style/language';
+@use './style/user';
+@use './style/panel';
 
 window.Bar {
   min-width: 50px;

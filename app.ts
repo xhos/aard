@@ -2,7 +2,7 @@ import { App } from 'astal/gtk4';
 import { exec, monitorFile } from 'astal';
 import Bar from './widget/Bar';
 
-const scss = './style/style.scss'; // Path to your style file
+const scss = './style.scss'; // Path to your style file
 const css = '/tmp/style.css'; // Could be anywhere else
 
 compileScss(); // Precompile SCSS on startup
