@@ -7,22 +7,23 @@ type BatteryInfo = {
   charging: boolean;
 };
 
-const batteryInfo = Variable({ level: 0, charging: false }).poll(1000, () => {
+const batteryInfo = Variable({ level: 0, charging: false });
+batteryInfo.poll(1000, () => {
   const battery = Battery.get_default();
-  if (battery) {
-    const rawPercentage = battery.get_percentage();
-    const level = Math.round(rawPercentage * 100);
-    const charging = battery.get_charging();
-    if (DEBUG) {
-      console.log(`Battery level: ${level}%, Raw: ${rawPercentage}, Charging: ${charging}`);
-    }
-    return { level, charging };
-  } else {
-    if (DEBUG) {
-      console.log('No battery found');
-    }
-    return { level: 0, charging: false };
-  }
+  return (
+    (battery.get_percentage() === 0 &&
+      (DEBUG && console.log('No battery found, stopping poll'),
+      batteryInfo.stopPoll(),
+      { level: 0, charging: false })) ||
+    (() => {
+      const rawPercentage = battery.get_percentage();
+      const level = Math.round(rawPercentage * 100);
+      const charging = battery.get_charging();
+      DEBUG &&
+        console.log(`Battery level: ${level}%, Raw: ${rawPercentage}, Charging: ${charging}`);
+      return { level, charging };
+    })()
+  );
 });
 
 const batteryLevel = bind(batteryInfo).as((info: BatteryInfo) => info.level.toString());

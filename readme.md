@@ -1,18 +1,20 @@
-# my astal shell
+# aard
+
+WIP astal shell
 
 ## usage
 
 add this to your flake inputs:
 
 ```nix
-astal-shell.url = "github:xhos/astal";
+aard.url = "github:xhos/aard";
 ```
 
 and add this somewhere in your config:
 
 ```nix
 home.packages = with pkgs; [
-  inputs.astal-shell.packages.${system}.default
+  inputs.aard.packages.${system}.default
 ];
 ```
 
@@ -20,7 +22,7 @@ or, if you don't use home manager
 
 ```nix
 environment.systemPackages = with pkgs; [
-  inputs.astal-shell.packages.${system}.default
+  inputs.aard.packages.${system}.default
 ];
 ```
 

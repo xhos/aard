@@ -4,6 +4,7 @@ import Workspace from './Workspace';
 import Systray from './Tray';
 import LanguageIndicator from './Language';
 import BatteryIndicator from './Battery';
+import Battery from 'gi://AstalBattery';
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
   const { TOP, LEFT, BOTTOM } = Astal.WindowAnchor;
@@ -22,7 +23,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
         <box vexpand={true} />
         <Systray />
         <LanguageIndicator />
-        <BatteryIndicator />
+        {Battery.get_default().get_percentage() !== 0 && <BatteryIndicator />}
         <Time />
       </box>
     </window>

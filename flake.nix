@@ -1,5 +1,5 @@
 {
-  description = "desktop shell that might be usable at some point, no promises";
+  description = "WIP astal shell";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -22,7 +22,7 @@
       default = ags.lib.bundle {
         inherit pkgs;
         src = ./.;
-        name = "my-shell";
+        name = "aard";
         entry = "app.ts";
         gtk4 = true;
 

@@ -4,7 +4,7 @@ import { astalify, hook } from 'astal/gtk4';
 import { ArrowUpIcon } from './icons/arrow-up';
 import Tray from 'gi://AstalTray';
 
-const excludeIcons = [/^video-display/, /^blueman-active/];
+const excludeIcons = [/^video-display/, /^blueman-active/, /^ /, /^$/];
 
 const PopoverMenu = astalify<Gtk.PopoverMenu, Gtk.PopoverMenu.ConstructorProps>(
   Gtk.PopoverMenu,
@@ -46,7 +46,7 @@ export default function Systray() {
             items.forEach((item) => {
               const iconName = item.gicon?.to_string() || '';
               console.log('Tray item:', {
-                name: item,
+                name: item.get_title(),
                 icon: iconName,
                 tooltip: item.tooltipMarkup,
               });
