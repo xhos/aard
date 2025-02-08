@@ -32,11 +32,10 @@ window.Bar {
 
   .BatteryLabel {
     margin-top: 8px;
-    margin-left: 3px;
+    margin-left: 2px;
     font-size: 22px;
     color: var(--md-sys-color-on-surface);
 
-    // Use &.Charging to style an element that has both BatteryLabel and Charging classes
     &.Charging {
       color: var(--md-sys-color-on-primary-container);
     }

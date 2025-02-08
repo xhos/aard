@@ -1,4 +1,3 @@
-// widget/Battery.tsx
 import { Gtk } from 'astal/gtk4';
 import Battery from 'gi://AstalBattery';
 import { Variable, bind } from 'astal';
@@ -29,7 +28,7 @@ const batteryInfo = Variable({ level: 0, charging: false }).poll(1000, () => {
 const batteryLevel = bind(batteryInfo).as((info: BatteryInfo) => info.level.toString());
 const isCharging = bind(batteryInfo).as((info: BatteryInfo) => info.charging);
 
-export default function BatteryWidget() {
+export default function BatteryIndicator() {
   return (
     <box
       cssClasses={bind(isCharging).as((charging: boolean) =>
