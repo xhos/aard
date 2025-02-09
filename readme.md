@@ -2,7 +2,7 @@
 
 WIP astal shell
 
-## usage
+## install
 
 add this to your flake inputs:
 
@@ -18,12 +18,19 @@ home.packages = with pkgs; [
 ];
 ```
 
-or, if you don't use home manager
+### tip
 
+you can install it as a systemd serivice, so it runs on startup, and restars on crashes
 ```nix
-environment.systemPackages = with pkgs; [
-  inputs.aard.packages.${system}.default
-];
+systemd.user.services.aard = {
+  Unit.Description = "Astal Shell";
+  Install.WantedBy = ["graphical-session.target"];
+  Service = {
+    ExecStart = "${inputs.aard.packages.${pkgs.system}.default}/bin/aard";
+    Restart = "always";
+    RestartSec = "5s";
+  };
+};
 ```
 
 ## development
