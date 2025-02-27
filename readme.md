@@ -1,4 +1,5 @@
 # aard
+![](./ss.png)  
 
 WIP astal shell
 
