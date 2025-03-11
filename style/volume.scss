@@ -1,0 +1,36 @@
+window.Bar {
+  .VolumeBox {
+    min-width: 42px;
+    min-height: 42px;
+    background: var(--md-sys-color-surface-container);
+    border-radius: 8px;
+    margin-bottom: 4px;
+    transition: background-color 300ms ease, border-radius 300ms ease;
+
+    &:hover {
+      background: var(--md-sys-color-surface-container-high);
+      border-radius: 16px;
+    }
+  }
+
+  .VolumeLabel {
+    margin-top: 8px;
+    margin-left: 2px;
+    font-size: 22px;
+    color: var(--md-sys-color-on-surface);
+
+    &.Muted {
+      color: var(--md-sys-color-on-error-container);
+    }
+  }
+
+  .VolumeIcon {
+    min-width: 24px;
+    min-height: 24px;
+    margin: 9px; /* Center the icon in the container */
+
+    &.Muted {
+      filter: brightness(0.8) sepia(1) saturate(5) hue-rotate(-30deg);
+    }
+  }
+}

@@ -6,6 +6,7 @@
 @use './style/user';
 @use './style/panel';
 @use './style/battery';
+@use './style/volume';
 
 window.Bar {
   min-width: 50px;
