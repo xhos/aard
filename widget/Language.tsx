@@ -34,7 +34,7 @@ const languageEmojis: Record<string, string> = {
 };
 
 const formatLayout = (layout: string) => {
-  return languageEmojis[layout] || layout;
+  return languageEmojis[layout] || '❓';
 };
 
 //// The widget ////
