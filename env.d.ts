@@ -5,6 +5,7 @@ export {};
 declare global {
   var CONFIG: {
     wallpaper: string | null;
+    transparency: boolean;
   };
 }
 

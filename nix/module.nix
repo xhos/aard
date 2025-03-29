@@ -20,6 +20,11 @@ in {
       default = "";
       description = "path to wallpaper";
     };
+    transparency = mkOption {
+      type = types.bool;
+      default = false;
+      description = "enable transparency for the bar";
+    };
     systemd.enable = mkEnableOption "enable systemd integration";
   };
 
@@ -27,10 +32,11 @@ in {
     home.packages = [package];
 
     # Create config directory if needed
-    xdg.configFile = mkIf (cfg.wallpaper != "") {
+    xdg.configFile = mkIf (cfg.wallpaper != "" || cfg.transparency) {
       "aard/config.json" = {
         text = builtins.toJSON {
           wallpaper = cfg.wallpaper;
+          transparency = cfg.transparency;
         };
       };
     };
