@@ -15,10 +15,12 @@
     nixpkgs,
     ags,
   }: let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+    systems = ["x86_64-linux" "aarch64-linux"];
+    forEachSystem = nixpkgs.lib.genAttrs systems;
   in {
-    packages.${system} = {
+    packages = forEachSystem (system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
       default = ags.lib.bundle {
         inherit pkgs;
         src = ./.;
@@ -38,9 +40,21 @@
           pkgs.jq # for language switcher
         ];
       };
+    });
+
+    # Add an overlay so the package is exposed as pkgs.aard
+    overlay = final: prev: {
+      aard = prev.writeShellScriptBin "aard" ''
+        exec ${self.packages.${final.stdenv.system}.default}/bin/aard "$@"
+      '';
     };
 
-    devShells.${system} = {
+    # Add the home-manager module
+    homeManagerModules.aard = import ./nix/module.nix self;
+
+    devShells = forEachSystem (system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
       default = pkgs.mkShell {
         buildInputs = [
           # includes astal3 astal4 astal-io by default
@@ -59,6 +73,6 @@
           })
         ];
       };
-    };
+    });
   };
 }
