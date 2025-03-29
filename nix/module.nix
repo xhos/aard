@@ -14,12 +14,13 @@ self: {
     else self.packages.${pkgs.stdenv.system}.default;
 in {
   options.programs.aard = {
-    enable = mkEnableOption "Aard";
+    enable = mkEnableOption "aard, astal shell";
     wallpaper = mkOption {
       type = types.path;
       default = "";
-      description = "Path to wallpaper image";
+      description = "path to wallpaper";
     };
+    systemd.enable = mkEnableOption "enable systemd integration";
   };
 
   config = mkIf cfg.enable {
@@ -30,6 +31,24 @@ in {
       "aard/config.json" = {
         text = builtins.toJSON {
           wallpaper = cfg.wallpaper;
+        };
+      };
+    };
+
+    systemd.user.services = mkIf cfg.systemd.enable {
+      aard = {
+        Unit = {
+          Description = "aard, astal shell";
+          PartOf = ["graphical-session.target"];
+          After = ["graphical-session-pre.target"];
+        };
+        Install = {
+          WantedBy = ["graphical-session.target"];
+        };
+        Service = {
+          ExecStart = "${package}/bin/aard";
+          Restart = "always";
+          RestartSec = "5s";
         };
       };
     };

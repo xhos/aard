@@ -1,6 +1,13 @@
 declare const SRC: string;
 declare const DEBUG: boolean;
 
+export {};
+declare global {
+  var CONFIG: {
+    wallpaper: string | null;
+  };
+}
+
 declare module 'inline:*' {
   const content: string;
   export default content;
