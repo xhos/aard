@@ -70,6 +70,7 @@
               ags.packages.${pkgs.system}.tray
               ags.packages.${pkgs.system}.wireplumber
               pkgs.jq # for language switcher
+              pkgs.matugen
             ];
           })
         ];
