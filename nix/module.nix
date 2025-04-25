@@ -25,6 +25,11 @@ in {
       default = false;
       description = "enable transparency for the bar";
     };
+    hyprsplit = mkOption {
+      type = types.bool;
+      default = false;
+      description = "support for hyprsplit";
+    };
     systemd.enable = mkEnableOption "enable systemd integration";
   };
 
@@ -32,11 +37,12 @@ in {
     home.packages = [package];
 
     # Create config directory if needed
-    xdg.configFile = mkIf (cfg.wallpaper != "" || cfg.transparency) {
+    xdg.configFile = mkIf (cfg.wallpaper != "" || cfg.transparency || cfg.hyprsplit) {
       "aard/config.json" = {
         text = builtins.toJSON {
           wallpaper = cfg.wallpaper;
           transparency = cfg.transparency;
+          hyprsplit = cfg.hyprsplit;
         };
       };
     };

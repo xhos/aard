@@ -9,6 +9,7 @@ globalThis.DEBUG = false;
 globalThis.CONFIG = {
   wallpaper: null,
   transparency: false,
+  hyprsplit: false,
 };
 
 declare global {
@@ -16,6 +17,7 @@ declare global {
   var CONFIG: {
     wallpaper: string | null;
     transparency: boolean;
+    hyprsplit: boolean;
   };
 }
 
